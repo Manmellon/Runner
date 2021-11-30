@@ -26,7 +26,7 @@ function createUnityInstance(canvas, config, onProgress) {
   var Module = {
     canvas: canvas,
     webglContextAttributes: {
-      preserveDrawingBuffer: false,
+      preserveDrawingBuffer: true,
     },
     TOTAL_MEMORY: 268435456,
     streamingAssetsUrl: "StreamingAssets",
