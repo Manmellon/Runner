@@ -8,7 +8,6 @@ body {
   background: #000;
   color: #999;
   font-size: 17px;
-  overflow-y: hidden;
   max-height: 100vh;
 }
 
@@ -60,7 +59,7 @@ a {
 /* this element makes sure we preserve 16:9 aspect ratio */
 
 .aspect {
-  margin-top: calc(100% / 960 * 600);
+  margin-top: 100px;
 }
 
 /* progress bar */
