@@ -26,7 +26,7 @@ function createUnityInstance(canvas, config, onProgress) {
   var Module = {
     canvas: canvas,
     webglContextAttributes: {
-      preserveDrawingBuffer: true,
+      preserveDrawingBuffer: false,
     },
     TOTAL_MEMORY: 268435456,
     streamingAssetsUrl: "StreamingAssets",
@@ -469,8 +469,6 @@ function createUnityInstance(canvas, config, onProgress) {
     if (!Module.SystemInfo.hasWebGL) {
       reject("Your browser does not support WebGL.");
     } else {
-      if (Module.SystemInfo.hasWebGL == 1)
-        Module.print("Warning: Your browser does not support \"WebGL 2.0\" Graphics API, switching to \"WebGL 1.0\"");
       Module.startupErrorHandler = reject;
       onProgress(0);
       Module.postRun.push(function () {
