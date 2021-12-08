@@ -4,6 +4,7 @@
 
 ```js
 Application.ExternalEval("onAuth(token)");
+Application.ExternalEval("sendItem(itemName)");
 ```
 
 ### Порядок использования скриптов
