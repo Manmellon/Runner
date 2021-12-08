@@ -1,13 +1,16 @@
 function gDO(event, data) {
     return JSON.stringify({
-        event,
+        eventName: event,
         data
     })
 }
 
 function activateOffer(itemId) {
     if (!myGameInstance)
-     return console.error('myGameInstance isn\' avaliable')
+        return console.error('myGameInstance isn\'t defined')
+    if (!mcd)
+        return myGameInstance.SendMessage('VoucherPanel', 'Callback', gDO('error', 'mcd isb\'t defined'))
+
     var offerActivation = mcd.bridge.message('offerActivation');
     offerActivation.send({
         'loyaltyId': 1012,
