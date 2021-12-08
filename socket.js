@@ -1,3 +1,6 @@
+let isMcdDefined = false
+document.addEventListener('mcdBridgeReady', () => isMcdDefined = true)
+
 function gDO(event, data) {
     return JSON.stringify({
         eventName: event,
@@ -5,16 +8,17 @@ function gDO(event, data) {
     })
 }
 
+
+
 function activateOffer(itemId) {
     if (!myGameInstance)
         return console.error('myGameInstance isn\'t defined')
-    if (!mcd)
+    if (!isMcdDefined)
         return myGameInstance.SendMessage('VoucherPanel', 'Callback', gDO('error', 'mcd isb\'t defined'))
 
     var offerActivation = mcd.bridge.message('offerActivation');
     offerActivation.send({
         'loyaltyId': 2919,
-        'autoActivate': false, //autoActivate true works only if you have only one reward in loyalty card.
         'rewardId': itemId
     });
     offerActivation.on('data', (data) => {
