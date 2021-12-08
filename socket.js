@@ -15,12 +15,12 @@ function activateOffer(itemId) {
         'rewardId': itemId
     });
     offerActivation.on('data', (data) => {
-        myGameInstance.SendMessage('', '', gDO('data', data))
+        myGameInstance.SendMessage('VoucherPanel', 'Callback', gDO('data', data))
     });
     offerActivation.on('error', (error) => {
-        myGameInstance.SendMessage('', '', gDO('data', error))
+        myGameInstance.SendMessage('VoucherPanel', 'Callback', gDO('data', error))
     });
     offerActivation.on('done', () => {
-        myGameInstance.SendMessage('', '', gDO('done'))
+        myGameInstance.SendMessage('VoucherPanel', 'Callback', gDO('done'))
     });
 }
