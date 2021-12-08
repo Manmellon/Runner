@@ -13,7 +13,7 @@ function activateOffer(itemId) {
 
     var offerActivation = mcd.bridge.message('offerActivation');
     offerActivation.send({
-        'loyaltyId': 1012,
+        'loyaltyId': 2919,
         'autoActivate': false, //autoActivate true works only if you have only one reward in loyalty card.
         'rewardId': itemId
     });
