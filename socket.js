@@ -1,4 +1,13 @@
+function gDO(event, data) {
+    return JSON.stringify({
+        event,
+        data
+    })
+}
+
 function activateOffer(itemId) {
+    if (!myGameInstance)
+     return console.error('myGameInstance isn\' avaliable')
     var offerActivation = mcd.bridge.message('offerActivation');
     offerActivation.send({
         'loyaltyId': 1012,
@@ -6,12 +15,12 @@ function activateOffer(itemId) {
         'rewardId': itemId
     });
     offerActivation.on('data', (data) => {
-        console.log('offerActivation data' + JSON.stringify(data));
+        myGameInstance.SendMessage('', '', gDO('data', data))
     });
     offerActivation.on('error', (error) => {
-        console.log('offerActivation error' + JSON.stringify(error));
+        myGameInstance.SendMessage('', '', gDO('data', error))
     });
     offerActivation.on('done', () => {
-        console.log('offerActivation done');
+        myGameInstance.SendMessage('', '', gDO('done'))
     });
 }
