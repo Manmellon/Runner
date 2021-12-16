@@ -40,7 +40,7 @@ async function activateOffer(itemId) {
             myGameInstance.SendMessage('VoucherPanel', 'Callback', gDO('data', { u: data }))
             var offerActivation = mcd.bridge.message('offerActivation');
             offerActivation.send({
-                'loyaltyId': 2919,
+                'loyaltyId': 2149,
                 'rewardId': itemId
             });
             offerActivation.on('data', (data) => {
